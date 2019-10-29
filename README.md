@@ -2,20 +2,19 @@
 
 vue-cli3快速开发
 
-### 安装依赖
+### 怎么使用？
 
 ```bash
+# 安装依赖
 yarn install
 ```
 
-### 本地运行
-
 ```bash
+# 本地运行
 yarn run serve
 ```
 
-### 打包
-
 ```bash
+# 打包
 yarn run build
 ```

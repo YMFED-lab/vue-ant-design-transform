@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 const HOST = '0.0.0.0';
-const PORT = '9001';
+const PORT = '9008';
 // const DEV_URL = 'http://10.200.10.48/';
 const DEV_URL = 'http://10.1.190.122:8000/'
 module.exports = {

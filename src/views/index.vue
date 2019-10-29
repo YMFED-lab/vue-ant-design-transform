@@ -40,7 +40,6 @@
           class="trigger"
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="()=> collapsed = !collapsed"/>
-          <select-project></select-project>
         </div>
         <div class="right-menu">
           <header-avatar></header-avatar>
@@ -65,7 +64,6 @@
 <script>
 // import {mapState} from 'vuex'
 import HeaderAvatar from '@/components/layouts/header/HeaderAvatar'
-import SelectProject from '@/components/widget/select-project.vue'
 import {getStore} from "@/utils/storage"
 import { deviceEnquire, DEVICE_TYPE } from '@/utils/device'
 export default {
@@ -80,8 +78,7 @@ export default {
     }
   },
   components: {
-    HeaderAvatar,
-    SelectProject
+    HeaderAvatar
   },
   computed: {
     // ...mapState({
@@ -90,13 +87,15 @@ export default {
   },
   methods: {
     onOpenChange (openKeys) {
-      console.log(openKeys)
       this.openKeys = openKeys
     },
     menuClick(event, menu) {
       // 点击左侧导航栏跳转页面
       let vm = this
       let openKeys = []
+      if(!menu.parent_id) {
+        vm.openKeys = []
+      }
       if(!vm.openKeys.length){
         openKeys = [menu.id.toString()]
       } else {
@@ -105,7 +104,7 @@ export default {
       vm.side_menus.forEach(function (v) {
         if(v.id == openKeys) {
           let turnPath = '/'
-          if(v.children.length > 0) {
+          if(v.children && v.children.length > 0) {
             v.children.forEach(function (v2) {
               if(v2.id == event.key) {
                 turnPath += v2.fullUrl
