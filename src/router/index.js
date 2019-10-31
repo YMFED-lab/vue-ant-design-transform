@@ -8,13 +8,13 @@ import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 
-import { analysis ,workbench } from './mock.js'
+import { analysis ,ldap_mock } from './mock.js'
 
 const whiteList = ['login'] // no redirect whitelist
 
 Vue.use(Router)
 const routes = []
-const side_menus = [...analysis, ...workbench];
+const side_menus = [...analysis, ...ldap_mock];
 setStore('side_menus', side_menus);
 if (side_menus && side_menus != 'undefined') {
   side_menus.forEach(function (v) {
