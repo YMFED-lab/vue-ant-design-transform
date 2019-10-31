@@ -1,34 +1,48 @@
 <template>
   <div id="userLayout" :class="['user-layout-wrapper', device]">
     <div class="container">
-      <div id="star">
+      <!-- <div id="star">
         <div class="star" v-for="(star, key) in stars" :key="key" :style="{top: star.y , left: star.x}"></div>
+      </div> -->
+      <div class="center-pos">
+        <div class="top">
+          <div class="header">
+            <router-link :to="{path: '/user/login'}" style='display: block;text-decoration: none;x'>
+              <img src="~@/assets/logo-min.png" class="logo" alt="logo">
+              <span class="title" style="color: #666;">测试平台</span>
+            </router-link>
+          </div>
+          <div class="desc">{{desc}}</div>
+        </div>
+        <route-view></route-view>
       </div>
-      <div class="top">
-        <!-- <p class="time">{{tickTime}}</p> -->
-      </div>
-      <router-view />
 
-      <!-- <div class="footer">
-        <div class="links">
+      <div class="footer">
+        <!-- <div class="links">
           <router-link :to="{ path: '/self/help' }">帮助</router-link>
           <router-link :to="{ path: '/self/privacy' }">隐私</router-link>
           <router-link :to="{ path: '/self/clause' }">条款</router-link>
+        </div> -->
+        <div class="copyright">
+            Copyright &copy; **有限公司
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import { mixinDevice } from '@/utils/mixin.js'
+   import RouteView from '@/components/layouts/RouteView'
   // import { showLocalTime } from '@/utils/util'
 
   export default {
     name: 'UserLayout',
+    components: { RouteView },
     mixins: [mixinDevice],
     data () {
       return {
+        desc: '欢迎使用测试平台',
         // tickTime: '', // 时间跳动
         stars: [
           // {
@@ -46,14 +60,14 @@
       //   this.tickTime = showLocalTime()
       // }, 1000)
 
-      this.generateStars()
+      // this.generateStars()
     },
     mounted () {
       document.body.classList.add('userLayout')
-      window.onresize = () => {
-        this.screenWidth = document.body.clientWidth
-        this.generateStars()
-      }
+      // window.onresize = () => {
+      //   this.screenWidth = document.body.clientWidth
+      //   this.generateStars()
+      // }
     },
     beforeDestroy () {
       document.body.classList.remove('userLayout')
@@ -103,29 +117,46 @@
       }
     }
     .container {
-      /*min-width: 100%;*/
-      /*min-height: 518px;*/
-      /*max-height: 540px;*/
-      height:100%;
+      width: 100%;
+      min-height: 100%;
+      background: #f5f5f5 url(~@/assets/background.svg) no-repeat 50%;
       position: relative;
+      .center-pos {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
       .top {
-        /*height:120px;*/
-        height:20%;
-        z-index: 9;
-        position: relative;
-        .logo {
-          width: 200px;
-          height: 77px;
-          margin-left:80px;
-          // cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .header {
+          .logo {
+            height: 46px;
+            vertical-align: top;
+            margin-right: 12px;
+            margin-top:-10px;
+            border-style: none;
+            vertical-align: middle;
+          }
+
+          .title {
+            font-size: 30px;
+            color: #333;
+            font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 600;
+            position: relative;
+            top: 2px;
+          }
         }
-        .time {
-          width: 94%;
-          font-size: 16px;
-          text-align: right;
-          color: #6860F4;
-          text-shadow: 3px 3px 3px #6860F4;
-        }
+      }
+
+      .desc{
+        font-size: 14px;
+        margin-top: 16px;
+        color: #999;
       }
 
       .footer {
@@ -133,6 +164,10 @@
         width: 100%;
         padding: 48px 0 24px 0px;
         text-align: center;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
         .links {
           font-size: 12px;
           a {
@@ -142,6 +177,10 @@
             }
           }
         }
+        .copyright {
+          color: rgba(0, 0, 0, 0.45);
+          font-size: 14px;
+        }          
       }
     }
   }
