@@ -6,11 +6,11 @@
       v-model="collapsed"
       :class="[isMobile && collapsed? 'mobile-side':'common-side', !isMobile ? 'normal-side' : '']">
       <div class="logo" @click="()=>{this.$router.push({path: '/'})}">
-        <div v-if="collapsed">
-            <div>large logo</div>
+        <div v-show="collapsed">
+            <img class="logo-img-s" src="~@/assets/logo-min.png" alt="">
         </div>
-        <div v-else>
-            <div>small logo</div>
+        <div v-show="!collapsed"> <!--使用v-show是因为不用改变dom，体验更好v-if要计算渲染-->
+            <img class="logo-img" src="~@/assets/logo.png" alt="">
         </div>
       </div>
       <a-menu 
