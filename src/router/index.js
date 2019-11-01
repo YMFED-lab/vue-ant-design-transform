@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/views/index'
-import { UserLayout } from '@/components/layouts'
+import { UserLayout, BlankLayout } from '@/components/layouts'
 import { setStore, getStore } from '@/utils/storage'
 import { createRoute } from '@/utils/util'
 import NProgress from 'nprogress' // progress bar
@@ -60,6 +60,22 @@ const router = new Router({
         }
       ]
     },
+    {
+      path: '/exception',
+      component: BlankLayout,
+      redirect: '/exception/404',
+      children: [
+        {
+          path: '404',
+          name: '404',
+          component: () => import(/* webpackChunkName: "user" */ '@/views/exception/404')
+        }
+      ]
+    },
+    {
+      path: '*',
+      component: () => import(/* webpackChunkName: "user" */ '@/views/exception/404')
+    }
   ],
   // base: process.env.BASE_URL,
   scrollBehavior: () => ({ y: 0 }),
