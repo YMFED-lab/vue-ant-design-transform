@@ -4,6 +4,15 @@
     <a href="https://github.com/reng99/blogs/issues">
         <img src="https://img.shields.io/github/issues/YMFED-lab/vue-ant-design-transform.svg" alt="issues"/>
     </a>
+    <a href="https://github.com/reng99/blogs/stargazers">
+        <img src="https://img.shields.io/github/stars/YMFED-lab/vue-ant-design-transform.svg" alt="star"/>
+    </a>
+    <a href="https://github.com/reng99/blogs/network/members">
+        <img src="https://img.shields.io/github/forks/YMFED-lab/vue-ant-design-transform.svg" alt="forks"/>
+    </a>
+    <a href="https://github.com/reng99/blogs/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/YMFED-lab/vue-ant-design-transform.svg" alt="license"/>
+    </a>
 </p>
 
 vue-cli3快速开发
