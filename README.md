@@ -1,8 +1,17 @@
 ## 整理pc端快速开发模版
 
 <p align="center">
-    <a href="https://github.com/reng99/blogs/issues">
+    <a href="https://github.com/YMFED-lab/vue-ant-design-transform/issues">
         <img src="https://img.shields.io/github/issues/YMFED-lab/vue-ant-design-transform.svg" alt="issues"/>
+    </a>
+    <a href="https://github.com/YMFED-lab/vue-ant-design-transform/stargazers">
+        <img src="https://img.shields.io/github/stars/YMFED-lab/vue-ant-design-transform.svg" alt="star"/>
+    </a>
+    <a href="https://github.com/YMFED-lab/vue-ant-design-transform/network/members">
+        <img src="https://img.shields.io/github/forks/YMFED-lab/vue-ant-design-transform.svg" alt="forks"/>
+    </a>
+    <a href="https://github.com/YMFED-lab/vue-ant-design-transform/blob/master/LICENSE">
+        <img src="https://img.shields.io/github/license/YMFED-lab/vue-ant-design-transform.svg" alt="license"/>
     </a>
 </p>
 
